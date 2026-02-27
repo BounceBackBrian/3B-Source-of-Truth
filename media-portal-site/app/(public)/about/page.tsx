@@ -1,0 +1,1 @@
+export default function AboutPage() { return <main className="container"><section className="glass"><h1>About</h1><p>3B Media Group is part of the 3B ecosystem and follows Core v1 governance.</p></section></main>; }

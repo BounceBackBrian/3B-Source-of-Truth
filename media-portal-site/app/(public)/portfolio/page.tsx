@@ -1,0 +1,1 @@
+export default function PortfolioPage() { return <main className="container"><section className="glass"><h1>Portfolio</h1><p>Portfolio items are loaded from Supabase table <code>portfolio_items</code>.</p></section></main>; }

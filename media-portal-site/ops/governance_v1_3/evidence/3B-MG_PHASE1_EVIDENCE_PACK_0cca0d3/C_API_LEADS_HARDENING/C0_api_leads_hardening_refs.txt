@@ -1,0 +1,8 @@
+4:import { escapeHtml, notifyEmail, notifySlack } from '@/lib/notifyLeads';
+26:  company?: string;
+34:function hashIp(ip: string) {
+79:  await notifySlack(slackMsg);
+98:  await notifyEmail('New Lead — 3B Media Group', html);
+105:    if (body.company && body.company.trim().length > 0) {
+109:    const ipHash = hashIp(getClientIp(req));
+156:      stripe_event_type: 'lead_submitted',

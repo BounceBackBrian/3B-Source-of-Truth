@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="3B Media Group business profile page for funding and company information submissions."
+    />
+    <title>3B Media Group | Business Profile for Funding</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <header class="hero">
+      <img src="./assets/3b-media-group-logo.svg" alt="3B Media Group logo" class="hero__logo" />
+      <div>
+        <p class="eyebrow">3B Media Group</p>
+        <h1>Business Page for Funding Purpose</h1>
+        <p>Submit company information to support funding, partner, or lender review workflows.</p>
+      </div>
+    </header>
+
+    <nav class="panel top-nav" aria-label="Portal navigation">
+      <a href="./index.html">Website Intake</a>
+      <a href="./business.html" aria-current="page">Business Page (Funding)</a>
+      <a href="./support.html">Support</a>
+    </nav>
+
+    <main>
+      <section class="panel">
+        <h2>3Boost Requirement</h2>
+        <p>Funding intake is gated behind an active 3Boost tied to your 3B ID and 3B Business ID.</p>
+      </section>
+
+      <section class="panel">
+        <h2>Company Information</h2>
+        <form id="business-form" class="grid-form">
+          <label>
+            Legal Business Name
+            <input type="text" name="legal_business_name" required />
+          </label>
+          <label>
+            DBA / Brand Name
+            <input type="text" name="dba_name" />
+          </label>
+          <label>
+            3B Business ID
+            <input type="text" name="threeb_business_id" required placeholder="3B-BIZ-####" />
+          </label>
+          <label>
+            Business Email
+            <input type="email" name="business_email" required />
+          </label>
+          <label>
+            Business Phone
+            <input type="tel" name="business_phone" required />
+          </label>
+          <label>
+            Year Established
+            <input type="number" min="1900" max="2100" name="year_established" />
+          </label>
+          <label class="span-2">
+            Business Address
+            <input type="text" name="business_address" required />
+          </label>
+          <label>
+            Industry
+            <input type="text" name="industry" required />
+          </label>
+          <label>
+            Entity Type
+            <select name="entity_type" required>
+              <option value="">Select one</option>
+              <option value="llc">LLC</option>
+              <option value="corporation">Corporation</option>
+              <option value="sole_prop">Sole Proprietorship</option>
+              <option value="partnership">Partnership</option>
+              <option value="nonprofit">Nonprofit</option>
+            </select>
+          </label>
+          <label>
+            Annual Revenue Range
+            <select name="annual_revenue" required>
+              <option value="">Select one</option>
+              <option value="0-50k">$0 - $50K</option>
+              <option value="50k-250k">$50K - $250K</option>
+              <option value="250k-1m">$250K - $1M</option>
+              <option value="1m+">$1M+</option>
+            </select>
+          </label>
+          <label>
+            Team Size
+            <input type="number" min="1" name="team_size" />
+          </label>
+          <label class="span-2">
+            Funding Purpose
+            <textarea name="funding_purpose" rows="4" required></textarea>
+          </label>
+          <label class="span-2">
+            Additional Company Notes
+            <textarea name="company_notes" rows="4"></textarea>
+          </label>
+          <div class="actions span-2">
+            <button type="submit">Save Business Profile</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Domain: media.bouncebackbrian.com ·
+        Support: support@bouncebackbrian.com
+      </p>
+    </footer>
+  </body>
+</html>
