@@ -1,0 +1,1 @@
+export default function PricingPage() { return <main className="container"><section className="glass"><h1>Pricing</h1><p>Freemium plus 3Boost-gated premium tiers for advanced features.</p></section></main>; }

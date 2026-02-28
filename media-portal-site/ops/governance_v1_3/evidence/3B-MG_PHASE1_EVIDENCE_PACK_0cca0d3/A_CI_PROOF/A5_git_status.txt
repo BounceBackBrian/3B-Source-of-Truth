@@ -1,0 +1,7 @@
+ M README.md
+ M scripts/capture_phase1_evidence.sh
+?? .next/
+?? node_modules/
+?? ops/governance_v1_3/evidence/3B-MG_PHASE1_EVIDENCE_PACK_0cca0d3/
+?? scripts/validate_phase1_evidence.sh
+?? tsconfig.tsbuildinfo

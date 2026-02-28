@@ -1,0 +1,4 @@
+5:const allowedStatuses = new Set(['new', 'triaged', 'contacted', 'won', 'lost']);
+12:    return NextResponse.json({ ok: false, error: 'Forbidden' }, { status: 403 });
+20:  if (!id || !allowedStatuses.has(status)) {
+32:    stripe_event_type: 'lead_updated_admin',

@@ -1,0 +1,1 @@
+export default function SubscribePage(){return <main className="container"><section className="glass"><h1>Subscribe / Activate 3Boost</h1><p>Portal data access requires active 3Boost subscription.</p></section></main>;}

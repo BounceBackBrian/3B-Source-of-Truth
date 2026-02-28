@@ -1,0 +1,24 @@
+commit 0cca0d3531820e6d20725124607f56a0d070f260
+Author:     Codex <codex@openai.com>
+AuthorDate: Fri Feb 27 21:16:53 2026 +0000
+Commit:     Codex <codex@openai.com>
+CommitDate: Fri Feb 27 21:16:53 2026 +0000
+
+    Phase 1: Intake → Triage — secure leads intake, admin triage, RLS spine, webhook & evidence pack
+    
+    ### Motivation
+    - Provide a provable, RLS-first Intake → Triage pipeline for 3B Media Group that enforces 3Boost gating and makes Stripe the single source of subscription truth.
+    - Remove client-side shortcuts by ensuring all lead writes, notifications and audit events are server-only and auditable.
+    - Deliver binary acceptance artifacts so Phase 1 can be validated by Oversight without external links.
+    
+    ### Description
+    - Add a Next.js App Router site scaffold with distinct public, auth, portal, and admin routes and a logo-first, premium UI baseline, plus global layout utilities that pin the footer to the bottom across pages.
+    - Implement secure leads flow: `POST /api/leads` performs honeypot + IP-hash rate limiting + validation, inserts via server-only Supabase service client, appends a `boost_events` ledger entry, and sends server-side notifications (Slack + Resend) without exposing service keys.
+    - Add Supabase schema and idempotent migrations to enforce the 3Boost spine (`20260227_3boost_spine_phase1.sql`), harden leads (`20260301_leads_intake_hardening.sql`), and wire observability triggers/events (`20260302_observability_lead_events.sql`), including `is_boost_active()` and `is_admin()` helpers and full RLS policies for all portal tables and storage.
+    - Ship admin tooling and server routes: SSR `/admin/leads` gated to admins, `/api/admin/leads/update` protected server update + `boost_events` logging, signature-verified Stripe webhook handler at `/api/webhooks/stripe` (idempotency, subscription upserts, `profiles.boost_status` updates), and an evidence-capture script plus an in-repo Phase-1 evidence pack stub to collect CI logs and runtime capture instructions.
+    
+    ### Testing
+    - Automated CI-style checks run locally and passed: `npm run lint` (no ESLint warnings), `npm run typecheck` (`tsc --noEmit`), and `npm run build` (Next.js production build completed successfully).
+    - Evidence capture executed via `scripts/capture_phase1_evidence.sh` to produce a structured evidence pack with CI logs (`A_CI_PROOF/A1_lint.txt`, `A2_typecheck.txt`, `A3_build.txt`) and hardening references; a ZIP of the generated pack was produced in-repo.
+    - Repository hygiene checks completed: `git diff --check` returned clean results.
+    - Note: Supabase runtime RLS validation (cross-tenant denial, boost-gate denial, admin update vs client denial) requires executing `docs/PHASE1_RLS_TESTS.sql` in a connected Supabase project and capturing dashboard/SQL-editor outputs, and the evidence pack includes explicit checklists/placeholders for those runtime captures.

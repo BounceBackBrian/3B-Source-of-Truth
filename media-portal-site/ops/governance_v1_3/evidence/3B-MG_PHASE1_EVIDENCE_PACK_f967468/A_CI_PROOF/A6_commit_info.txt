@@ -1,0 +1,25 @@
+commit f967468b1506d69d4f6f92769d2ce92095f50f92
+Author:     Codex <codex@openai.com>
+AuthorDate: Fri Feb 27 21:00:41 2026 +0000
+Commit:     Codex <codex@openai.com>
+CommitDate: Fri Feb 27 21:00:41 2026 +0000
+
+    Add 3B Media Group Next.js site, portals, Supabase schema, webhook and leads APIs, and CI
+    
+    ### Motivation
+    
+    - Introduce a complete Next.js-based website plus client/admin portals for 3B Media Group with payment-gated access and governance-ready observability.
+    - Add server-side intake and admin workflows for leads, with observability and idempotent event ledgering tied to Stripe webhooks and RLS-protected Postgres.
+    
+    ### Description
+    
+    - Add a new `media-portal-site` Next.js app including app routes, components, global styling, static public assets, and small client forms (`/start`, public pages, `portal` and `admin` areas).
+    - Implement server APIs: `/api/leads` (rate-limited, HMAC/IP-hash, DB insert, Slack/Resend notifications), `/api/admin/leads/update` (admin-only lead updates), and `/api/webhooks/stripe` (signature-verified Stripe webhook handling that upserts `subscriptions`, writes `boost_events`, and updates `profiles.boost_status`).
+    - Add server helpers and infra code: `lib/env.ts`, `lib/supabase.ts`, `lib/notifyLeads.ts`, middleware guarding `/portal` and `/admin` paths, and `.env.example` for required secrets.
+    - Add Supabase artifacts and migrations (`supabase/schema.sql`, `migrations/*`, `storage.sql`) implementing RLS, business/membership tenancy, leads table, boost event ledger, audit log, triggers/functions for observability and protections (e.g., guard against client-mutating boost_status), and storage policies for `project-files`.
+    - Add repository-level files: `README.md`, `docs/LOCKED_SPEC_V2.1.md`, PR template, TypeScript config, ESLint config, `package.json`/`package-lock.json`, `next.config.mjs`, Vercel config, and a GitHub Actions CI workflow to run `npm ci`, `npm run lint`, `npm run typecheck`, and `npm run build`.
+    
+    ### Testing
+    
+    - A CI workflow (`.github/workflows/ci.yml`) was added to run `npm ci`, `npm run lint`, `npm run typecheck`, and `npm run build` on pushes and pull requests to `dev`/`main`.
+    - No automated tests were executed as part of this PR; the pipeline is configured to validate linting, typechecking, and build on CI when the workflow runs.

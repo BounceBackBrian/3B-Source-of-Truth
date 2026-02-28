@@ -1,0 +1,5 @@
+Run docs/PHASE1_RLS_TESTS.sql in Supabase SQL editor and capture:
+- Client A cannot read Client B lead
+- Client B own-read with active boost
+- boost_status=inactive denial
+- Admin update success + client update denial

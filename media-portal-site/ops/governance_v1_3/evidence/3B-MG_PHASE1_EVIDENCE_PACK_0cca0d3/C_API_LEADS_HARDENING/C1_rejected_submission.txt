@@ -1,0 +1,1 @@
+PLACEHOLDER: paste rejected /api/leads request output (honeypot or rate-limit).
