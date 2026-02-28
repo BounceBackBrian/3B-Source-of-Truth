@@ -1,0 +1,62 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> 3b-media-portal@1.0.0 build
+> next build
+
+  ▲ Next.js 14.2.32
+  - Experiments (use with caution):
+    · typedRoutes
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/28) ...
+   Generating static pages (7/28) 
+   Generating static pages (14/28) 
+   Generating static pages (21/28) 
+ ✓ Generating static pages (28/28)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    5.34 kB         101 kB
+├ ○ /_not-found                          873 B            88 kB
+├ ○ /about                               184 B          87.3 kB
+├ ○ /admin                               184 B            96 kB
+├ ○ /admin/clients                       184 B            96 kB
+├ ƒ /admin/clients/[id]                  184 B          87.3 kB
+├ ƒ /admin/leads                         184 B            96 kB
+├ ○ /admin/portfolio                     184 B          87.3 kB
+├ ○ /admin/projects                      184 B          87.3 kB
+├ ○ /admin/tickets                       184 B          87.3 kB
+├ ƒ /api/admin/leads/update              0 B                0 B
+├ ƒ /api/leads                           0 B                0 B
+├ ƒ /api/webhooks/stripe                 0 B                0 B
+├ ○ /auth/login                          184 B          87.3 kB
+├ ○ /auth/signup                         184 B          87.3 kB
+├ ○ /auth/subscribe                      184 B          87.3 kB
+├ ○ /contact                             184 B          87.3 kB
+├ ○ /features                            184 B          87.3 kB
+├ ○ /portal                              184 B            96 kB
+├ ○ /portal/files                        184 B          87.3 kB
+├ ○ /portal/profile                      184 B          87.3 kB
+├ ○ /portal/projects                     184 B            96 kB
+├ ƒ /portal/projects/[id]                184 B          87.3 kB
+├ ○ /portal/tickets                      184 B          87.3 kB
+├ ƒ /portal/tickets/[id]                 184 B          87.3 kB
+├ ○ /portfolio                           184 B          87.3 kB
+├ ○ /pricing                             184 B          87.3 kB
+├ ○ /services                            184 B          87.3 kB
+└ ○ /start                               1.29 kB        88.4 kB
++ First Load JS shared by all            87.1 kB
+  ├ chunks/117-ebda9fc725b665e1.js       31.6 kB
+  ├ chunks/fd9d1056-3eee857bde8f3b06.js  53.6 kB
+  └ other shared chunks (total)          1.86 kB
+
+
+ƒ Middleware                             26.6 kB
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

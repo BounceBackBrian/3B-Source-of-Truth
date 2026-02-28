@@ -1,0 +1,2 @@
+/workspace/3B-Source-of-Truth/media-portal-site/.github/pull_request_template.md:1:## Governance Compliance
+/workspace/3B-Source-of-Truth/media-portal-site/.github/pull_request_template.md:3:- [ ] Reviewed `docs/LOCKED_SPEC_V2.1.md`
