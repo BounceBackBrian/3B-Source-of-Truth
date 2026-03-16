@@ -160,4 +160,6 @@ This alignment keeps Credit Builders an independent lane while plugging cleanly 
 
 ---
 
+See also: `V1-FULL-Execution-Pack/Docs/3B_Credit_Builders_V1_3Boost_Spec.md` for the locked 3Boost product-lane spec used to derive implementation epics and stories.
+
 **Status:** DRAFT. @BounceBackBrian – READY FOR REVIEW.
